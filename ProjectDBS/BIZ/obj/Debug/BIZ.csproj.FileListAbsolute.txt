@@ -1,0 +1,7 @@
+C:\Users\10042622\Desktop\ProjectDBS\BIZ\bin\Debug\BIZ.dll
+C:\Users\10042622\Desktop\ProjectDBS\BIZ\bin\Debug\BIZ.pdb
+C:\Users\10042622\Desktop\ProjectDBS\BIZ\bin\Debug\DAL.dll
+C:\Users\10042622\Desktop\ProjectDBS\BIZ\bin\Debug\DAL.pdb
+C:\Users\10042622\Desktop\ProjectDBS\BIZ\obj\Debug\BIZ.csprojResolveAssemblyReference.cache
+C:\Users\10042622\Desktop\ProjectDBS\BIZ\obj\Debug\BIZ.dll
+C:\Users\10042622\Desktop\ProjectDBS\BIZ\obj\Debug\BIZ.pdb

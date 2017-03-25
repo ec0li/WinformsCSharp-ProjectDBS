@@ -1,0 +1,13 @@
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\bin\Debug\UserControls.dll
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\bin\Debug\UserControls.pdb
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\obj\Debug\UserControls.csprojResolveAssemblyReference.cache
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\obj\Debug\UserControls.csproj.GenerateResource.Cache
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\obj\Debug\UserControls.dll
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\obj\Debug\UserControls.pdb
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\bin\Debug\Model.dll
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\bin\Debug\Model.pdb
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\obj\Debug\UserControls.ucCourseDetailControl.resources
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\obj\Debug\UserControls.ucSystemUserRegistration.resources
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\obj\Debug\UserControls.ucUpdateRecordControl.resources
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\bin\Debug\BIZ.dll
+C:\Users\10042622\Desktop\ProjectDBS\UserControls\bin\Debug\BIZ.pdb
