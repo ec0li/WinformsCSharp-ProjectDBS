@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             Model.UpdateStudentRecord updateStudentRecord1 = new Model.UpdateStudentRecord();
+            Model.UpdateStudentRecord updateStudentRecord2 = new Model.UpdateStudentRecord();
             this.grpEditStudent = new System.Windows.Forms.GroupBox();
             this.ucUpdateRecordControl1 = new UserControls.ucUpdateRecordControl();
             this.menuEditStudentForm = new System.Windows.Forms.MenuStrip();
@@ -37,7 +38,7 @@
             this.closeApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNewStudent = new System.Windows.Forms.ToolStripMenuItem();
             this.addStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.Button();
@@ -65,6 +66,17 @@
             // 
             // ucUpdateRecordControl1
             // 
+            updateStudentRecord1.AddressLine1 = null;
+            updateStudentRecord1.AddressLine2 = null;
+            updateStudentRecord1.City = null;
+            updateStudentRecord1.County = null;
+            updateStudentRecord1.Email = null;
+            updateStudentRecord1.FirstName = null;
+            updateStudentRecord1.Level = null;
+            updateStudentRecord1.Phone = null;
+            updateStudentRecord1.StudentNumber = 0;
+            updateStudentRecord1.Surname = null;
+            this.ucUpdateRecordControl1.DisplayEditRecord = updateStudentRecord1;
             this.ucUpdateRecordControl1.EditOnly = false;
             this.ucUpdateRecordControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucUpdateRecordControl1.Location = new System.Drawing.Point(8, 48);
@@ -74,17 +86,17 @@
             this.ucUpdateRecordControl1.ReadWrite = false;
             this.ucUpdateRecordControl1.Size = new System.Drawing.Size(540, 332);
             this.ucUpdateRecordControl1.TabIndex = 5;
-            updateStudentRecord1.AddressLine1 = "";
-            updateStudentRecord1.AddressLine2 = "";
-            updateStudentRecord1.City = "";
-            updateStudentRecord1.County = "";
-            updateStudentRecord1.Email = "";
-            updateStudentRecord1.FirstName = "";
-            updateStudentRecord1.Level = "";
-            updateStudentRecord1.Phone = "";
-            updateStudentRecord1.StudentNumber = 0;
-            updateStudentRecord1.Surname = "";
-            this.ucUpdateRecordControl1.UpdateStudent = updateStudentRecord1;
+            updateStudentRecord2.AddressLine1 = "";
+            updateStudentRecord2.AddressLine2 = "";
+            updateStudentRecord2.City = "";
+            updateStudentRecord2.County = "";
+            updateStudentRecord2.Email = "";
+            updateStudentRecord2.FirstName = "";
+            updateStudentRecord2.Level = "";
+            updateStudentRecord2.Phone = "";
+            updateStudentRecord2.StudentNumber = 0;
+            updateStudentRecord2.Surname = "";
+            this.ucUpdateRecordControl1.UpdateStudent = updateStudentRecord2;
             // 
             // menuEditStudentForm
             // 
@@ -124,7 +136,7 @@
             // 
             this.menuNewStudent.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addStudentToolStripMenuItem,
-            this.exitStudentToolStripMenuItem,
+            this.editStudentToolStripMenuItem,
             this.toolStripMenuItem2,
             this.logoutToolStripMenuItem1});
             this.menuNewStudent.Name = "menuNewStudent";
@@ -138,12 +150,12 @@
             this.addStudentToolStripMenuItem.Text = "Add Student";
             this.addStudentToolStripMenuItem.Click += new System.EventHandler(this.addStudentToolStripMenuItem_Click);
             // 
-            // exitStudentToolStripMenuItem
+            // editStudentToolStripMenuItem
             // 
-            this.exitStudentToolStripMenuItem.Name = "exitStudentToolStripMenuItem";
-            this.exitStudentToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.exitStudentToolStripMenuItem.Text = "Edit Student";
-            this.exitStudentToolStripMenuItem.Click += new System.EventHandler(this.exitStudentToolStripMenuItem_Click);
+            this.editStudentToolStripMenuItem.Name = "editStudentToolStripMenuItem";
+            this.editStudentToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.editStudentToolStripMenuItem.Text = "Edit Student";
+            this.editStudentToolStripMenuItem.Click += new System.EventHandler(this.editStudentToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -187,6 +199,7 @@
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // EditStudent
             // 
@@ -217,7 +230,7 @@
         private System.Windows.Forms.ToolStripMenuItem closeApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuNewStudent;
         private System.Windows.Forms.ToolStripMenuItem addStudentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitStudentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem1;
         private UserControls.ucUpdateRecordControl ucUpdateRecordControl1;

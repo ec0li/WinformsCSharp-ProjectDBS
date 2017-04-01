@@ -41,7 +41,7 @@ namespace DAL
             cmd.CommandText = "uspGetStudentRecord";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@studentId", studentId);
-            cmd.ExecuteScalar();
+            cmd.ExecuteReader();
             CloseConnection();
             return cmd;
         }

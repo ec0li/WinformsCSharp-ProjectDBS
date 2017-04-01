@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 
@@ -13,43 +6,34 @@ namespace UserControls
 {
     public partial class ucUpdateRecordControl : UserControl
     {
-        //Class Definition: Configure the Update Record Control for Read Write (New/View/Edit) in multiple Pres Layer forms.
+        /**
+         *   Class Definition: Configure the Update Record Control for Read Write (New/View/Edit) in multiple Pres Layer forms.
+         */
 
-        //provide provide var for Model property encapsulation
-        private UpdateStudentRecord varUpdateStudent; //THIS IS CAUSING AN OBJ INSTANCE NOT SET ISSUE IN ALL CONTROLS
+        //private object declarations (encapsulating dataflow) for use by properties 
+        private UpdateStudentRecord varUpdateStudent;
+        private UpdateStudentRecord varGetRecord;
 
-        //declare properties
+        //declare main form properties
         public bool ReadOnly { get; set; }
         public bool ReadWrite { get; set; }
         public bool EditOnly { get; set; }
-       
-        //Class Constructor
+
+        //Class Constructor - no args
         public ucUpdateRecordControl()
         {
             InitializeComponent();
         }
 
-        //overload  contructor
-        public ucUpdateRecordControl(int studentNumber, string firstName, string lastName, string email, string phone, string addressLine1,
-            string addressLine2, string city, string county, string level)
-        {
-            txtStudentNumber.Text = studentNumber.ToString();
-            txtFirstName.Text = firstName;
-            txtSurname.Text = lastName;
-            txtEmail.Text = email;
-            txtPhone.Text = phone;
-            txtStreetAddress.Text = addressLine1;
-            txtArea.Text = addressLine2;
-            txtCity.Text = city;
-            txtCounty.Text = county;
-            txtStudentLevel.Text = level;   
-        }
-        //UpdateStudentRecord property: references the UpdateStudentRecord class in Model - customised get set required for encapsulation
+        /*
+         * Properties: UpdateStudent & DisplayEditRecord for form use posting
+         * to DB from user input and displaying from DB for user edit 
+         */
         public UpdateStudentRecord UpdateStudent
         {
             get
             {
-                if (varUpdateStudent == null)
+                if (varUpdateStudent == null && EditOnly == false)
                 {
                     varUpdateStudent = new UpdateStudentRecord();
                 }
@@ -61,7 +45,31 @@ namespace UserControls
                 this.varUpdateStudent = value;
             }
         }
-        ////Get Data method called in the UpdateStudentRecord (Model) property
+
+        public UpdateStudentRecord DisplayEditRecord
+        {
+            get
+            {
+                if (varGetRecord == null)
+                {
+                    varGetRecord = new UpdateStudentRecord();
+                }
+                SetData();
+                return varGetRecord;
+            }
+            set
+            {
+                this.varGetRecord = value;
+            }
+
+        }
+        /*
+         * Helper methods *2 supporting properties - GetData & SetData method 
+         * GetData method gets data from form fields and passes to UpdateStudent property for processing to DB
+         * SetData method gets data from model object and passes values from DB to form fields for editing
+         */
+
+        //GetData prcesses Model object via UpdateStudent property
         private void GetData()
         {
             try
@@ -84,8 +92,31 @@ namespace UserControls
                 Console.WriteLine(ne.Message);
             }
         }
+        //SetData processes Model object via DisplayEditRecord property
+        private void SetData()
+        {
+            try
+            { 
+                txtStudentNumber.Text = varGetRecord.StudentNumber.ToString();
+                txtFirstName.Text = varGetRecord.FirstName;
+                txtSurname.Text = varGetRecord.Surname;
+                txtEmail.Text = varGetRecord.Email;
+                txtPhone.Text = varGetRecord.Phone;
+                txtStreetAddress.Text = varGetRecord.AddressLine1;
+                txtArea.Text = varGetRecord.AddressLine2;
+                txtCity.Text = varGetRecord.City;
+                txtCounty.Text = varGetRecord.County;
+                txtStudentLevel.Text = varGetRecord.Level.ToString();
+            }
+            catch (NullReferenceException ne)
+            {
+                Console.WriteLine(ne.Message);
+            }
+        }
 
-        //Load event to set acccess field conditions depending on edit rights
+        /*
+         * Load event to set acccess field conditions on the form control depending on edit rights
+         */
         private void UpdateRecordControl_Load(object sender, EventArgs e)
         {
            txtStudentNumber.Enabled = false;
@@ -107,20 +138,6 @@ namespace UserControls
                 txtStudentNumber.Enabled = false;
                 txtFirstName.Enabled = false;
                 txtSurname.Enabled = false;
-            }
-            //Test Edit student connectivity between user control and form
-            if (varUpdateStudent != null)
-            {
-                txtStudentNumber.Text = varUpdateStudent.StudentNumber.ToString();
-                txtFirstName.Text = varUpdateStudent.FirstName;
-                txtSurname.Text = varUpdateStudent.Surname;
-                txtEmail.Text = varUpdateStudent.Email;
-                txtPhone.Text = varUpdateStudent.Phone;
-                txtStreetAddress.Text = varUpdateStudent.AddressLine1;
-                txtArea.Text = varUpdateStudent.AddressLine2;
-                txtCity.Text = varUpdateStudent.City;
-                txtCounty.Text = varUpdateStudent.County;
-                txtStudentLevel.Text = varUpdateStudent.Level;
             }
         }
     }

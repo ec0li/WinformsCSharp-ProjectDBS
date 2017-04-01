@@ -10,9 +10,13 @@ namespace DAL
 {
     public class AddData:DAO
     {
-        //Class Definition: To Manage the Addition and Updating of Data to the DB via the Dao
+        /**
+         * Class Definition: To Manage the Addition and Updating of Data to the DB via the DAO Base Class
+         */
 
-        //method 1 - add data for a new customer
+        /*
+         * method 1 - add data for an inputted new student record to DB - returns true if successful and false if DB insert is not successful
+         */
         public bool AddNewStudent(int studentId, string firstName, string surname, string email, string phone, string addressLine1, string addressLine2, string city, string county,
             string studentLevel, int courseId, string courseCode, string courseName, string courseLevel)
         {
@@ -54,6 +58,9 @@ namespace DAL
             return successfulDBWrite;
         }
 
+        /*
+        * method 2 -  add data for an inputted new system user record to DB - returns true if successful and false if DB insert is not successful
+        */
         public bool AddNewUser(int employeeId, string username, string password, string firstName, string lastName, string jobTitle, string userType, string userStatus, string managerAuthId, 
             string managerFirstName, string managerLastName, string managerEmail)
         {
@@ -91,6 +98,44 @@ namespace DAL
                 Console.WriteLine(se.Message);
             }
             return isAddedUser;
+        }
+
+        /*
+         * method 3 - add updated data for an inputted student record to DB - returns true if successful and false if DB insert is not successful
+         */
+
+        public bool EditStudentRecord(int studentId, string email, string phone, string addressLine1, string addressLine2, string city, string county, string studentLevel)
+        {
+            bool successfulDBWrite = false;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("uspEditStudent", OpenConnection());
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@studentId", studentId);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@phone", phone);
+                cmd.Parameters.AddWithValue("@addressLine1", addressLine1);
+                cmd.Parameters.AddWithValue("@addressLine2", addressLine2);
+                cmd.Parameters.AddWithValue("@city", city);
+                cmd.Parameters.AddWithValue("@county", county);
+                cmd.Parameters.AddWithValue("@studentLevel", studentLevel);
+                int successfulDBPosting = cmd.ExecuteNonQuery();
+                if (successfulDBPosting == 0)
+                {
+                    CloseConnection();
+                }
+                else
+                {
+                    successfulDBWrite = true;
+                    CloseConnection();
+                }
+                return successfulDBWrite;
+            }
+            catch (SqlException se)
+            {
+                Console.WriteLine(se.Message);
+            }
+            return successfulDBWrite;
         }
     }
 }
