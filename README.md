@@ -11,4 +11,4 @@ a) Microsoft Visual Studios 2015
 b) SQL Server 2014 interface with Visual Studios 
 c) .Net including ADO.NET
 
-Project is functioning save Edit feature that is partly build and needs to be build out in future commits. User Controls and layers follow a good modular structure so they are resusable upon demand. Futher information and contact to myself at johnmlhll@yahoo.com and you can follow me on Twitter @johnmlhll. If I see you are a coder and/or in the software industry, I will follow you back when I see your follow!
+Features include view students, add students, edit students, delete students and add new application user. User Controls and layers follow a good modular structure so they are resusable upon demand. Futher information and contact to myself at johnmlhll@yahoo.com and you can follow me on Twitter @johnmlhll. If I see you are a coder and/or in the software industry, I will follow you back when I see your follow!
